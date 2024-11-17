@@ -8,7 +8,7 @@
 - [Interface](#interface)
 - [Game Rules](#game-rules)
 - [Contributors](#contributors)
-- [License](#license)
+
 
 ## Overview
 
@@ -71,6 +71,4 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 Geomatics Engineering - Hacettepe University  
 [LinkedIn](https://www.linkedin.com/in/ilgincigdem) | [GitHub](https://github.com/ilgincigdem)
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).

@@ -69,8 +69,8 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
    
 
 5. **Hints**: Click the "Get Hint" button to receive additional help about the location. If you request another hint, a warning appears, and the previous hint will be removed.
-6. **Scoring and remaining number of guesses**: Points are awarded based on the accuracy of your guess. You earn points for every correct guess. Players have 6 lives. Each incorrect guess costs a life.
-
+6. **Scoring and remaining number of guesses**: Points are awarded based on the accuracy of your guess. You earn points for every correct guess. Players have 6 lives. Each incorrect guess costs a life. 
+Once all 6 lives are depleted, the target location will be automatically shown.
 
 ## DOM
 

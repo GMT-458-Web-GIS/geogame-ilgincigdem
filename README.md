@@ -1,5 +1,5 @@
 # Ilgın's GeoGame🌍 - Interactive Geographic Guessing Game
-Link required to play the game:
+Link required to play the game: https://gmt-458-web-gis.github.io/geogame-ilgincigdem/
 ## Table of Contents
 
 - [Overview](#overview)

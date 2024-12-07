@@ -1,13 +1,13 @@
 # GeoGame🌍 - Interactive Geographic Guessing Game
-
+Link required to play the game:
 ## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Interface](#interface)
+- [Interface Design](#interface-design)
 - [Game Rules](#game-rules)
-- [DOM](#DOM)
+- [DOM](#dom)
 - [Contributors](#contributors)
 
 
@@ -56,17 +56,20 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 2. **Guess the Location**: Click on the 3D map to identify the city. Your goal is to click as close as possible to the correct location.
 3. **Distance Feedback**: The distance between the estimated location and the target location is shown in km. Users should base their estimates on the distance feedback.
 4. **Color Feedback**: The Hacettepe University Beytepe Campus is set as the reference. Feedback is displayed as a color-coded line from the reference point to the guessed location:
-   - **Green**: Very close ![Ekran görüntüsü 2024-11-17 191849](https://github.com/user-attachments/assets/aebae1ac-a30f-4f47-ba7c-d76cedbda084)
+   - **Green**: Very close to the target (less than 500 km). ![Ekran görüntüsü 2024-12-07 180638](https://github.com/user-attachments/assets/ea4cef6f-7ba3-4794-9aff-ae032c7ed186)
 
-   - **Yellow**: Medium distance ![Ekran görüntüsü 2024-11-17 191745](https://github.com/user-attachments/assets/edd8f344-66b3-49e8-9ff0-388a19b80f18)
 
-   - **Red**: Far away ![Ekran görüntüsü 2024-11-17 191834](https://github.com/user-attachments/assets/100c4a03-7e3c-4c58-9dc4-4ddade68ec28)
+   - **Yellow**: Moderately close to the target (500-3000 km). ![Ekran görüntüsü 2024-12-07 180712](https://github.com/user-attachments/assets/063be832-874f-468f-89db-28b8e0fcd675)
+
+
+   - **Red**: Far from the target (more than 3000 km). ![Ekran görüntüsü 2024-12-07 180800](https://github.com/user-attachments/assets/8b481ca1-18fa-4eb1-a3bd-862ee6c011a4)
+
 
 
    
 
 5. **Hints**: Click the "Get Hint" button to receive additional help about the location. If you request another hint, a warning appears, and the previous hint will be removed.
-6. **Scoring**: Points are awarded based on the accuracy of your guess. You earn points for every correct guess.
+6. **Scoring and remaining number of guesses**: Points are awarded based on the accuracy of your guess. You earn points for every correct guess. Players have 6 lives. Each incorrect guess costs a life.
 
 
 ## DOM

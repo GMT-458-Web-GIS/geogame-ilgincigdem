@@ -1,4 +1,4 @@
-# GeoGame🌍 - Interactive Geographic Guessing Game
+# Ilgın's GeoGame🌍 - Interactive Geographic Guessing Game
 Link required to play the game:
 ## Table of Contents
 
@@ -55,7 +55,7 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 1. **Start the Game**: Click the "Start Game" button to begin.
 2. **Guess the Location**: Click on the 3D map to identify the city. Your goal is to click as close as possible to the correct location.
 3. **Distance Feedback**: The distance between the estimated location and the target location is shown in km. Users should base their estimates on the distance feedback.
-4. **Color Feedback**: The Hacettepe University Beytepe Campus is set as the reference. Feedback is displayed as a color-coded line from the reference point to the guessed location:
+4. **Color Feedback**: The Hacettepe University Beytepe Campus (geomatics engineering building) is set as the reference. Feedback is displayed as a color-coded line from the reference point to the guessed location:
    - **Green**: Very close to the target (less than 500 km). ![Ekran görüntüsü 2024-12-07 180638](https://github.com/user-attachments/assets/ea4cef6f-7ba3-4794-9aff-ae032c7ed186)
 
 

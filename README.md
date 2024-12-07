@@ -21,7 +21,8 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 
 - **3D Map Visualization**: Utilizes CesiumJS to provide an interactive 3D globe interface for location identification.
 - **City Image Hints**: Each game round presents a photo related to the target city to help players guess the correct location on the map.
-- **Distance Feedback**: After each guess, players receive feedback on how close their guess was, using color-coded distance markers.
+- **Distance Feedback**: After each guess, players receive feedback showing the distance between the target location and the predicted location in km.
+- **Color Feedback**: After each guess, players receive feedback on how close their guess was, using color-coded distance markers.
 - **Hint System**: Players can request additional hints about the location. Once a hint is received, no further hints are available.
 - **Scoring**: Points are awarded based on the accuracy of the guesses. Players have limited attempts to make correct guesses, and if attempts are exhausted, the target location is revealed automatically.
 - **Responsive Design**: The game is mobile-friendly and designed to work across different devices and screen sizes.
@@ -46,14 +47,15 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 - **2D Mode**: Displays the map as a flat surface, and controls adapt accordingly.
 - **Columbus View (2.5D Mode)**: A hybrid mode between flat and spherical views, allowing for perspective adjustments.
 
-## Interface
+## Interface Design
 ![game](https://github.com/user-attachments/assets/7c2e1fc6-659f-48e5-85d4-e8235b427a64)
 
 ## Game Rules
 
 1. **Start the Game**: Click the "Start Game" button to begin.
 2. **Guess the Location**: Click on the 3D map to identify the city. Your goal is to click as close as possible to the correct location.
-3. **Distance Feedback**: The Hacettepe University Beytepe Campus is set as the reference. Feedback is displayed as a color-coded line from the reference point to the guessed location:
+3. **Distance Feedback**: The distance between the estimated location and the target location is shown in km. Users should base their estimates on the distance feedback.
+4. **Color Feedback**: The Hacettepe University Beytepe Campus is set as the reference. Feedback is displayed as a color-coded line from the reference point to the guessed location:
    - **Green**: Very close ![Ekran görüntüsü 2024-11-17 191849](https://github.com/user-attachments/assets/aebae1ac-a30f-4f47-ba7c-d76cedbda084)
 
    - **Yellow**: Medium distance ![Ekran görüntüsü 2024-11-17 191745](https://github.com/user-attachments/assets/edd8f344-66b3-49e8-9ff0-388a19b80f18)
@@ -61,10 +63,10 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
    - **Red**: Far away ![Ekran görüntüsü 2024-11-17 191834](https://github.com/user-attachments/assets/100c4a03-7e3c-4c58-9dc4-4ddade68ec28)
 
 
-   The numerical distance between the guessed and target locations is also displayed, helping players improve their guesses.
+   
 
-4. **Hints**: Click the "Get Hint" button to receive additional help about the location. If you request another hint, a warning appears, and the previous hint will be removed.
-5. **Scoring**: Points are awarded based on the accuracy of your guess. The closer your guess, the more points you earn.
+5. **Hints**: Click the "Get Hint" button to receive additional help about the location. If you request another hint, a warning appears, and the previous hint will be removed.
+6. **Scoring**: Points are awarded based on the accuracy of your guess. You earn points for every correct guess.
 
 
 ## DOM

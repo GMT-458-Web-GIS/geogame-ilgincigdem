@@ -76,15 +76,17 @@ I used document.getElementById to select and update elements like the distance, 
 
 `document.getElementById('distance').innerHTML = Distance: ${distanceFromGuessToTarget.toFixed(2)} km`;  
 
-2. **Adding and Removing Elements:**
-I dynamically added heart icons to represent the player's lives using document.createElement and appendChild. For example:
+2. **Displaying the Instructional Panel:**
+At the start of the game, I displayed an instructional panel to guide the player. When the player clicked the "Close" button, I hid the panel and displayed the game info panel. For example:
 
-`const heart = document.createElement('img');  
-heart.src = 'images/heart.png';  
-heart.alt = 'Heart';  
-livesContainer.appendChild(heart);`  
+`document.getElementById('instructionPanel').style.display = 'flex';`
 
- 
+`document.getElementById('closeInstruction').addEventListener('click', function () {         document.getElementById('instructionPanel').style.display = 'none';         document.getElementById('info').style.display = 'block';     });`  
+
+ 3. **Flying to the Target Location:**
+When the player lost the game or guessed correctly, I used the flyTo method to move the camera to the target location. For example:
+
+`viewer.camera.flyTo({         destination: Cesium.Cartesian3.fromDegrees(targetLocation.lng, targetLocation.lat, 150000),         orientation: {             heading: Cesium.Math.toRadians(0),             pitch: Cesium.Math.toRadians(-90),             roll: 0.0         },         duration: 2,     });`
 
 ## Contributors
 

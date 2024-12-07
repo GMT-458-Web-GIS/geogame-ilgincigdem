@@ -7,6 +7,7 @@ Link required to play the game: https://gmt-458-web-gis.github.io/geogame-ilginc
 - [Technologies Used](#technologies-used)
 - [Interface Design](#interface-design)
 - [Game Rules](#game-rules)
+- [AI](#ai)
 - [DOM](#dom)
 - [Contributors](#contributors)
 
@@ -71,6 +72,9 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 6. **Scoring and remaining number of guesses**: Points are awarded based on the accuracy of your guess. You earn points for every correct guess. Players have 6 lives. Each incorrect guess costs a life. 
 Once all 6 lives are depleted, the target location will be automatically shown.
 
+## AI
+https://chatgpt.com/share/67549317-f70c-800f-97dd-f9e73f0b54e0
+
 ## DOM
 
 **How I Interacted with the DOM:**
@@ -91,6 +95,7 @@ At the start of the game, I displayed an instructional panel to guide the player
 When the player lost the game or guessed correctly, I used the flyTo method to move the camera to the target location. For example:
 
 `viewer.camera.flyTo({         destination: Cesium.Cartesian3.fromDegrees(targetLocation.lng, targetLocation.lat, 150000),         orientation: {             heading: Cesium.Math.toRadians(0),             pitch: Cesium.Math.toRadians(-90),             roll: 0.0         },         duration: 2,     });`
+
 
 ## Contributors
 

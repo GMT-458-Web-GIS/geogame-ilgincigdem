@@ -76,7 +76,7 @@ I used document.getElementById to select and update elements like the distance, 
 
 `document.getElementById('distance').innerHTML = Distance: ${distanceFromGuessToTarget.toFixed(2)} km`;  
 
-3. **Adding and Removing Elements:**
+2. **Adding and Removing Elements:**
 I dynamically added heart icons to represent the player's lives using document.createElement and appendChild. For example:
 
 `const heart = document.createElement('img');  
@@ -84,13 +84,7 @@ heart.src = 'images/heart.png';
 heart.alt = 'Heart';  
 livesContainer.appendChild(heart);`  
 
-5. **Event Handlers:**
-I used addEventListener to handle user interactions, such as clicking the "Start Game" button to reset the game:
-
-`document.getElementById('start').addEventListener('click', function() {  
-    alert("To start the game, take a hint and click on cities to guess!");  
-    resetGame();  
-});`  
+ 
 
 ## Contributors
 

@@ -7,6 +7,8 @@ Link required to play the game: https://gmt-458-web-gis.github.io/geogame-ilginc
 - [Technologies Used](#technologies-used)
 - [Interface Design](#interface-design)
 - [Game Rules](#game-rules)
+- [Event Handlers](#event-handlers)
+- [Closures](#closures)
 - [AI](#ai)
 - [DOM](#dom)
 - [Contributors](#contributors)
@@ -72,6 +74,107 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 6. **Scoring and remaining number of guesses**: Points are awarded based on the accuracy of your guess. You earn points for every correct guess. Players have 6 lives. Each incorrect guess costs a life. 
 Once all 6 lives are depleted, the target location will be automatically shown.
 
+## Event Handlers
+**Example 1: Start Game Button Click Event**
+
+This event handler is triggered when the user clicks the "Start Game" button. It displays an alert to guide the player and resets the game by initializing the target location, lives, and other game variables. This ensures the game starts fresh every time the button is clicked.
+
+`document.getElementById('start').addEventListener('click', function () {  
+  alert("To start the game, take a hint and click on cities to guess!");  
+  resetGame(); // Reset game on start  
+});`
+
+**Example 2: Hint Button Click Event**
+
+This event handler is triggered when the user clicks the "Get Hint" button. It calls the giveHint function, which displays a visual clue (an image) about the target location. If the user has already used the hint, it displays a message saying no more hints are available. This adds interactivity and helps players make better guesses.
+
+`document.getElementById('getHint').addEventListener('click', giveHint);`
+
+**Example 3: Map Click Event**
+
+This event handler is triggered when the user clicks on the globe. It calculates the latitude and longitude of the clicked location, places a marker, and calculates the distance to the target location. Based on the distance, it updates the game state (e.g., lives, score) and provides feedback to the player. This is the core interactivity of the game.
+
+viewer.screenSpaceEventHandler.setInputAction(function (click) {  
+  const cartesian = viewer.camera.pickEllipsoid(click.position, viewer.scene.globe.ellipsoid);  
+  if (cartesian) {  
+    const cartographic = Cesium.Cartographic.fromCartesian(cartesian);  
+    const guessLat = Cesium.Math.toDegrees(cartographic.latitude);  
+    const guessLng = Cesium.Math.toDegrees(cartographic.longitude);  
+
+    // Add a marker for the guessed location  
+    guessMarker = viewer.entities.add({  
+      position: Cesium.Cartesian3.fromDegrees(guessLng, guessLat),  
+      point: { pixelSize: 10, color: Cesium.Color.BLACK }  
+    });  
+
+    // Calculate distance and check if the guess is correct  
+    const distanceFromGuessToTarget = calculateDistance(guessLat, guessLng, targetLocation.lat, targetLocation.lng);  
+    document.getElementById('distance').innerHTML = `Distance between guess location and target location: ${distanceFromGuessToTarget.toFixed(2)} km`;  
+
+    // Handle game logic (e.g., lives, score, reset)  
+    if (distanceFromGuessToTarget < 100) {  
+      alert(`Congratulations! You found ${targetLocation.name}.`);  
+      score++;  
+      document.getElementById('score').innerHTML = `Score: ${score}`;  
+      resetGame();  
+    } else {  
+      lives--;  
+      updateLives();  
+      if (lives <= 0) {  
+        alert(`Game Over! The correct location was ${targetLocation.name}.`);  
+        flyToTarget();  
+        setTimeout(resetGame, 3000);  
+      }  
+    }  
+  }  
+}, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+## Closures
+
+**Hint Counter**
+
+How It Uses Closures:
+
+The giveHint function uses the hintCounter variable, which is defined in its outer scope. Even though hintCounter is not re-declared inside the function, it retains its value between function calls. This allows the game to track how many hints the player has used and limit them to one hint per round.
+
+let hintCounter = 0;  
+
+function giveHint() {  
+  if (hintCounter === 0) {  
+    document.getElementById('hint').innerHTML = `<img src="${targetLocation.hint}" alt="Hint Image" style="width: 200px; height: auto;">`;  
+    hintCounter++;  
+  } else {  
+    document.getElementById('hint').innerHTML = 'No more hints available!';  
+  }  
+}  
+
+**Lives Management**
+
+How It Uses Closures:
+
+The initializeLives and updateLives functions both rely on the lives variable, which is defined in their outer scope. These functions can access and modify the lives variable, allowing the game to dynamically update the number of lives displayed on the screen. This is an example of closures being used to manage game state.
+
+let lives = 6;  
+
+function initializeLives() {  
+  const livesContainer = document.getElementById('lives');  
+  livesContainer.innerHTML = '';  
+  for (let i = 0; i < lives; i++) {  
+    const heart = document.createElement('img');  
+    heart.src = 'images/heart.png';  
+    heart.alt = 'Heart';  
+    heart.className = 'life';  
+    livesContainer.appendChild(heart);  
+  }  
+}  
+
+function updateLives() {  
+  const livesContainer = document.getElementById('lives');  
+  const hearts = livesContainer.getElementsByClassName('life');  
+  if (hearts.length > 0) {  
+    livesContainer.removeChild(hearts[hearts.length - 1]);  
+  }  
+}  
 ## AI
 https://chatgpt.com/share/67549317-f70c-800f-97dd-f9e73f0b54e0
 

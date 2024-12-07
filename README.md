@@ -79,21 +79,26 @@ Once all 6 lives are depleted, the target location will be automatically shown.
 
 This event handler is triggered when the user clicks the "Start Game" button. It displays an alert to guide the player and resets the game by initializing the target location, lives, and other game variables. This ensures the game starts fresh every time the button is clicked.
 
-`document.getElementById('start').addEventListener('click', function () {  
-  alert("To start the game, take a hint and click on cities to guess!");  
-  resetGame(); // Reset game on start  
-});`
+```javascript
+document.getElementById('start').addEventListener('click', function () {    
+  alert("To start the game, take a hint and click on cities to guess!");    
+  resetGame(); // Reset game on start    
+});  
+```
 
 **Example 2: Hint Button Click Event**
 
 This event handler is triggered when the user clicks the "Get Hint" button. It calls the giveHint function, which displays a visual clue (an image) about the target location. If the user has already used the hint, it displays a message saying no more hints are available. This adds interactivity and helps players make better guesses.
 
-`document.getElementById('getHint').addEventListener('click', giveHint);`
+```javascript
+document.getElementById('getHint').addEventListener('click', giveHint);
+```
 
 **Example 3: Map Click Event**
 
 This event handler is triggered when the user clicks on the globe. It calculates the latitude and longitude of the clicked location, places a marker, and calculates the distance to the target location. Based on the distance, it updates the game state (e.g., lives, score) and provides feedback to the player. This is the core interactivity of the game.
 
+```javascript
 viewer.screenSpaceEventHandler.setInputAction(function (click) {  
   const cartesian = viewer.camera.pickEllipsoid(click.position, viewer.scene.globe.ellipsoid);  
   if (cartesian) {  
@@ -128,15 +133,17 @@ viewer.screenSpaceEventHandler.setInputAction(function (click) {
     }  
   }  
 }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+```
 
 ## Closures
 
-**Hint Counter**
+**1.Hint Counter**
 
 How It Uses Closures:
 
 The giveHint function uses the hintCounter variable, which is defined in its outer scope. Even though hintCounter is not re-declared inside the function, it retains its value between function calls. This allows the game to track how many hints the player has used and limit them to one hint per round.
 
+```javascript
 let hintCounter = 0;  
 
 function giveHint() {  
@@ -147,13 +154,16 @@ function giveHint() {
     document.getElementById('hint').innerHTML = 'No more hints available!';  
   }  
 }  
+```
 
-**Lives Management**
+
+**2.Lives Management**
 
 How It Uses Closures:
 
 The initializeLives and updateLives functions both rely on the lives variable, which is defined in their outer scope. These functions can access and modify the lives variable, allowing the game to dynamically update the number of lives displayed on the screen. This is an example of closures being used to manage game state.
 
+```javascript
 let lives = 6;  
 
 function initializeLives() {  
@@ -174,7 +184,9 @@ function updateLives() {
   if (hearts.length > 0) {  
     livesContainer.removeChild(hearts[hearts.length - 1]);  
   }  
-}  
+}
+```
+  
 ## AI
 https://chatgpt.com/share/67549317-f70c-800f-97dd-f9e73f0b54e0
 
@@ -185,19 +197,27 @@ https://chatgpt.com/share/67549317-f70c-800f-97dd-f9e73f0b54e0
 1. **Updating HTML Elements Dynamically:**
 I used document.getElementById to select and update elements like the distance, score, and hints dynamically based on user interactions. For example:
 
-`document.getElementById('distance').innerHTML = Distance: ${distanceFromGuessToTarget.toFixed(2)} km`;  
+```javascript
+document.getElementById('distance').innerHTML = Distance: ${distanceFromGuessToTarget.toFixed(2)} km`;
+```  
 
 2. **Displaying the Instructional Panel:**
 At the start of the game, I displayed an instructional panel to guide the player. When the player clicked the "Close" button, I hid the panel and displayed the game info panel. For example:
 
-`document.getElementById('instructionPanel').style.display = 'flex';`
+```javascript
+document.getElementById('instructionPanel').style.display = 'flex';
+```
 
-`document.getElementById('closeInstruction').addEventListener('click', function () {         document.getElementById('instructionPanel').style.display = 'none';         document.getElementById('info').style.display = 'block';     });`  
+```javascript
+document.getElementById('closeInstruction').addEventListener('click', function () {         document.getElementById('instructionPanel').style.display = 'none';         document.getElementById('info').style.display = 'block';     });
+```  
 
  3. **Flying to the Target Location:**
 When the player lost the game or guessed correctly, I used the flyTo method to move the camera to the target location. For example:
 
-`viewer.camera.flyTo({         destination: Cesium.Cartesian3.fromDegrees(targetLocation.lng, targetLocation.lat, 150000),         orientation: {             heading: Cesium.Math.toRadians(0),             pitch: Cesium.Math.toRadians(-90),             roll: 0.0         },         duration: 2,     });`
+```javascript
+viewer.camera.flyTo({         destination: Cesium.Cartesian3.fromDegrees(targetLocation.lng, targetLocation.lat, 150000),         orientation: {             heading: Cesium.Math.toRadians(0),             pitch: Cesium.Math.toRadians(-90),             roll: 0.0         },         duration: 2,     });
+```
 
 
 ## Contributors

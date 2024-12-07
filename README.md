@@ -7,6 +7,7 @@
 - [Technologies Used](#technologies-used)
 - [Interface](#interface)
 - [Game Rules](#game-rules)
+- [DOM](#DOM)
 - [Contributors](#contributors)
 
 
@@ -64,6 +65,29 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 
 4. **Hints**: Click the "Get Hint" button to receive additional help about the location. If you request another hint, a warning appears, and the previous hint will be removed.
 5. **Scoring**: Points are awarded based on the accuracy of your guess. The closer your guess, the more points you earn.
+
+
+## DOM
+
+**How I Interacted with the DOM:**
+
+1. **Updating HTML Elements Dynamically:**
+I used document.getElementById to select and update elements like the distance, score, and hints dynamically based on user interactions. For example:
+document.getElementById('distance').innerHTML = `Distance: ${distanceFromGuessToTarget.toFixed(2)} km`;  
+
+2. **Adding and Removing Elements:**
+I dynamically added heart icons to represent the player's lives using document.createElement and appendChild. For example:
+const heart = document.createElement('img');  
+heart.src = 'images/heart.png';  
+heart.alt = 'Heart';  
+livesContainer.appendChild(heart);  
+
+3. **Event Handlers:**
+I used addEventListener to handle user interactions, such as clicking the "Start Game" button to reset the game:
+document.getElementById('start').addEventListener('click', function() {  
+    alert("To start the game, take a hint and click on cities to guess!");  
+    resetGame();  
+});  
 
 ## Contributors
 

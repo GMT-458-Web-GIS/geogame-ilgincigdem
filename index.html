@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILGIN'S GEOGAME</title>
+    <!-- CesiumJS CSS -->
+    <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.104/Build/Cesium/Widgets/widgets.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Game Info Panel -->
+<div id="info">
+    <div id="distance">Distance: </div>
+    <div id="hint">Hint: </div>
+    <div id="score">Score: 0</div>
+    <div id="lives">
+        <!-- Kalpler buraya JavaScript ile eklenecek -->
+    </div>
+    <button id="start">Start Game</button>
+    <button id="getHint">Get Hint</button>
+</div>
+
+<!-- Instructional Panel -->  
+<div id="instructionPanel">  
+    <div id="instructionContent">  
+        <h2>Welcome to Ilgın's GeoGame!</h2>  
+        <p style="font-size: 1.5em; font-weight: bold;">How to play:</p>    
+        <ul>    
+            <li>Click on the map to guess the location of the target city.</li>    
+            <li>Use the "Get Hint" button to see a visual clue.</li>    
+            <li>You have 6 lives. Each incorrect guess costs a life.</li>    
+            <li>The distance between your estimated location and the target location will be shown to you in km. Make your estimates based on the distance.</li>
+            <li>Find the target city to earn points and continue playing!</li>    
+        </ul>    
+        <p style="font-size: 1.2em; font-weight: bold;">Mouse Controls:</p>    
+        <ul>    
+            <li>Click and drag to rotate the globe and explore different regions.</li>    
+            <li>Use the scroll wheel to zoom in and out for a closer or wider view.</li>    
+                
+        </ul>    
+        <p style="font-size: 1.2em; font-weight: bold;">Color Feedback:</p>    
+        <ul>    
+            <li><span style="color: green; font-weight: bold;">Green:</span> Very close to the target (less than 500 km).</li>    
+            <li><span style="color: yellow; font-weight: bold;">Yellow:</span> Moderately close to the target (500-3000 km).</li>    
+            <li><span style="color: red; font-weight: bold;">Red:</span> Far from the target (more than 3000 km).</li>    
+        </ul>
+        <p style="font-size: 1em; font-style: italic; color: gray;">Note: The character selection during the game currently has no effect in this version. It will be functional in the next update.</p>    
+        <button id="closeInstruction">Close</button>  
+    </div>  
+</div>    
+
+<!-- The globe container -->
+<div id="cesiumContainer"></div>
+
+<!-- CesiumJS Library -->
+<script src="https://cesium.com/downloads/cesiumjs/releases/1.104/Build/Cesium/Cesium.js"></script>
+<script src="character.js"></script>
+<script src="script.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>

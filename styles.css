@@ -1,0 +1,185 @@
+/* Cesium container styling */
+#cesiumContainer {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #121212; /* Dark background for the globe */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8); /* Subtle glow effect */
+}
+
+/* Info panel styling */
+#info {
+    padding: 20px;
+    color: #f0f0f0;
+    background-color: rgba(40, 40, 40, 0.95); /* Slightly darker background */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 15px; /* Softer corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); /* Enhanced shadow */
+    max-width: 350px; /* Slightly wider */
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+}
+
+#info div {
+    margin-bottom: 15px;
+    font-size: 1.2em; /* Slightly larger text */
+    line-height: 1.5; /* Better readability */
+}
+
+#lives {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px; /* More spacing between lives */
+}
+
+#lives img {
+    width: 35px; /* Slightly larger icons */
+    height: 35px;
+    filter: drop-shadow(0 0 8px #ff0000); /* Stronger glow effect */
+}
+
+#info button {
+    margin-top: 15px;
+    padding: 12px 25px; /* Larger button */
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Softer corners */
+    cursor: pointer;
+    font-size: 1em; /* Slightly larger text */
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+#info button:hover {
+    background-color: #1565c0;
+    transform: scale(1.1); /* More noticeable hover effect */
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.6); /* Glow on hover */
+}
+
+/* Hint image styling */
+#hint img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px; /* Softer corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#hint img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9); /* Enhanced shadow on hover */
+}
+
+/* Larger hint images when button is clicked */
+#hint img:active {
+    transform: scale(1.2); /* Larger zoom on click */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 1); /* Stronger shadow on click */
+}
+
+
+/* Instructional Panel Styling */  
+#instructionPanel {  
+    position: fixed;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    z-index: 2000; /* Ensure it appears above everything else */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+}  
+
+#instructionContent {  
+    background-color: rgba(40, 40, 40, 0.95); /* White background for the panel */  
+    padding: 20px;  
+    border-radius: 15px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);  
+    text-align: center;  
+    max-width: 500px;  
+    width: 90%;  
+}  
+
+#instructionContent h2 {  
+    margin-bottom: 15px;  
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+}  
+
+#instructionContent p {  
+    margin-bottom: 10px;  
+    font-size: 1.1em;  
+    color: white;  
+}  
+
+#instructionContent ul {  
+    text-align: left;  
+    margin: 10px 0;  
+    padding-left: 20px;  
+    color: white;  
+}  
+
+#instructionContent button {  
+    margin-top: 15px;  
+    padding: 10px 20px;  
+    background-color: #1e88e5;  
+    color: white;  
+    border: none;  
+    border-radius: 8px;  
+    cursor: pointer;  
+    font-size: 1em;  
+    font-weight: bold;  
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;  
+}  
+
+#instructionContent button:hover {  
+    background-color: #1565c0;  
+    transform: scale(1.1);  
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.6);  
+}  
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    #cesiumContainer {
+        height: 50vh; /* Adjust the height for smaller screens */
+    }
+    #info {
+        top: 10px;
+        left: 10px;
+        max-width: 90%;
+        padding: 15px; /* Slightly smaller padding */
+    }
+    #info button {
+        padding: 10px 20px; /* Adjust button size */
+        font-size: 0.9em; /* Slightly smaller text */
+    }
+    #lives img {
+        width: 30px; /* Adjust icon size */
+        height: 30px;
+    }
+}
+
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  

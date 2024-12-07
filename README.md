@@ -25,7 +25,6 @@ This project utilizes *CesiumJS* for 3D map visualization, *JavaScript* for game
 - **Color Feedback**: After each guess, players receive feedback on how close their guess was, using color-coded distance markers.
 - **Hint System**: Players can request additional hints about the location. Once a hint is received, no further hints are available.
 - **Scoring**: Points are awarded based on the accuracy of the guesses. Players have limited attempts to make correct guesses, and if attempts are exhausted, the target location is revealed automatically.
-- **Responsive Design**: The game is mobile-friendly and designed to work across different devices and screen sizes.
 
 ## Technologies Used
 
